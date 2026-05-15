@@ -61,6 +61,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import com.foobnix.pdf.info.wrapper.ObsidianSync;
 
 @TargetApi(Build.VERSION_CODES.O) public class TTSService extends Service {
     public static final String EXTRA_PATH = "EXTRA_PATH";
@@ -231,6 +232,7 @@ import java.util.List;
         AppSP.get().lastFontSize = fontSize;
         AppSP.get().lastBookTitle = title;
         AppSP.get().lastBookPage = page;
+        ObsidianSync.scrobbleChapter(path, title, page);
 
         Intent intent = playBookIntent(page, path, anchor);
         //UserDefinedFileAttributeView

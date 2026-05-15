@@ -66,6 +66,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import com.foobnix.pdf.info.wrapper.ObsidianSync;
 
 public abstract class DocumentController {
 
@@ -568,6 +569,7 @@ public abstract class DocumentController {
             AppBook bs = SettingsManager.getBookSettings();
             bs.updateFromAppState();
             SharedBooks.save(bs);
+            ObsidianSync.syncProgress(bs.getPath(), getCurentPageFirst1(), getPageCount());
 
             //AppBook bs = SettingsManager.getBookSettings(getCurrentBook().getPath());
             //bs.updateFromAppState();
